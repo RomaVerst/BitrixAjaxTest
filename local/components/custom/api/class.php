@@ -110,10 +110,17 @@ class Api extends CBitrixComponent implements Controllerable
                         'Регион ' . $iNumber
                     ]
                 ];
+                $sName = 'Тест материал ' . $iNumber;
+                $arParams = [
+                    'replace_space'=>'-',
+                    'replace_other'=>'-'
+                ];
+                $sTrans = Cutil::translit($sName,"ru",$arParams);
                 $arLoadProductFields = [
                     'IBLOCK_ID' => self::IBLOCK_ID,
                     'PROPERTY_VALUES' => $arProp,
-                    'NAME' => 'Тест материал ' . $iNumber,
+                    'NAME' => $sName,
+                    'CODE' => $sTrans,
                     'ACTIVE' => 'Y'
                 ];
 
